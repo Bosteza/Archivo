@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include <stdlib.h>
+
+
+int main(){
+
+    char caracter;
+    FILE*Archivo1=fopen("Archivo1.txt","w");
+
+    if(Archivo1==NULL){
+
+        perror("Error al abrir archivo");
+        return 1;
+    }
+
+    // Ahora puedes escribir en el archivo
+    for (int i = 0; i < 101; i++) {
+            fprintf(Archivo1, "%d ",i); // Escribir el valor en el archivo
+    }
+    
+
+    fclose(Archivo1);
+  
+    
+    return 0;
+}
