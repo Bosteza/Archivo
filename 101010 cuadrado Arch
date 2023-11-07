@@ -1,0 +1,34 @@
+#include<stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(){
+
+    srand(time(NULL));
+
+    char caracter;
+    FILE*Archivo1=fopen("Archivo1.txt","w");
+
+    if(Archivo1==NULL){
+
+        perror("Error al abrir archivo");
+        return 1;
+    }
+
+    // Ahora puedes escribir en el archivo
+    fprintf(Archivo1, "Este es un nuevo archivo.\n");
+
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 8; j++) {
+            int valor = rand() % 2; // Generar un valor aleatorio de 0 o 1
+            fprintf(Archivo1, "%d ", valor); // Escribir el valor en el archivo
+        }
+        fprintf(Archivo1, "\n"); // Nueva línea después de cada fila
+    }
+    
+
+    fclose(Archivo1);
+  
+    
+    return 0;
+}
