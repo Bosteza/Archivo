@@ -1,0 +1,36 @@
+#include<stdio.h>
+
+
+int main(){
+
+char caracter; //char type
+int count;
+bool condition;
+FILE*file=fopen("HoLa.txt","r");
+
+if(file==NULL){
+		perror("Error en la apertura");
+		return 1;
+}
+
+count=0;
+condition=false;
+
+while(feof(file)==0){
+	caracter=fgetc(file);
+	
+	if(caracter=='\n')
+		condition=true;
+	if(caracter==',')	
+	if(!condition)
+		count++;
+}
+
+
+printf("%d",count);
+
+fclose(file);
+printf("\n\nTodo bien...\n\n\n\n");
+
+return 0;
+}
